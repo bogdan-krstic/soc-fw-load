@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view>
+
+<defaultnode/>
+
+<defaultedge color="Black"/>
+
+<node>
+   <type name="Fifo"/>
+   <type name="Int"/>
+   <type name="Node"/>
+   <type name="String"/>
+   <type name="T"/>
+   <type name="univ"/>
+   <type name="seq/Int"/>
+   <set name="this/a" type="T"/>
+   <set name="this/b" type="T"/>
+   <set name="this/c" type="T"/>
+   <set name="this/d" type="T"/>
+</node>
+
+</view>
+
+</alloy>

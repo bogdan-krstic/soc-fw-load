@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view>
+
+<defaultnode/>
+
+<defaultedge color="Black"/>
+
+<node>
+   <type name="ack"/>
+   <type name="active"/>
+   <type name="auth_req"/>
+   <type name="auth_rsp"/>
+   <type name="bad_fw"/>
+   <type name="ce"/>
+   <type name="ce_to_dev"/>
+   <type name="dev"/>
+   <type name="dev_to_ce"/>
+   <type name="drv"/>
+   <type name="drv_to_dev"/>
+   <type name="fw_running"/>
+   <type name="good_fw"/>
+   <type name="Int"/>
+   <type name="load_fw"/>
+   <type name="lock_IM"/>
+   <type name="seq_sts_PASS"/>
+   <type name="String"/>
+   <type name="sts"/>
+   <type name="t1"/>
+   <type name="t2_0"/>
+   <type name="t2_bad"/>
+   <type name="t2_good"/>
+   <type name="t3"/>
+   <type name="t4"/>
+   <type name="t5"/>
+   <type name="t6"/>
+   <type name="t8"/>
+   <type name="univ"/>
+   <type name="seq/Int"/>
+</node>
+
+<node color="Gray">
+   <type name="Fifo/Fifo"/>
+</node>
+
+<node hideunconnected="no" shape="Egg" color="Gray">
+   <type name="Fifo/Node"/>
+</node>
+
+<node hideunconnected="yes">
+   <type name="Firmware"/>
+   <type name="Message_type"/>
+   <type name="Signal_type"/>
+   <type name="Transition"/>
+</node>
+
+<node shape="Box" color="Red">
+   <type name="Tracker"/>
+</node>
+
+<node shape="Lined Diamond" color="Blue">
+   <type name="Agent"/>
+</node>
+
+<node visible="no">
+   <type name="bar"/>
+   <type name="Live"/>
+</node>
+
+<edge attribute="no">
+   <relation name="read"> <type name="Fifo/Fifo"/> <type name="Fifo/Node"/> </relation>
+   <relation name="write"> <type name="Fifo/Fifo"/> <type name="Fifo/Node"/> </relation>
+</edge>
+
+<edge color="Magic" visible="no" layout="no" label="">
+   <relation name="nodes"> <type name="Fifo/Fifo"/> <type name="Fifo/Node"/> </relation>
+</edge>
+
+<edge label="">
+   <relation name="$paper_example_f"> <type name="Fifo/Node"/> <type name="Fifo/Fifo"/> </relation>
+   <relation name="source"> <type name="Agent"/> <type name="Fifo/Fifo"/> </relation>
+   <relation name="succ"> <type name="Fifo/Node"/> <type name="Fifo/Node"/> </relation>
+   <relation name="target"> <type name="ce_to_dev"/> <type name="Agent"/> </relation>
+   <relation name="target"> <type name="dev_to_ce"/> <type name="Agent"/> </relation>
+   <relation name="target"> <type name="drv_to_dev"/> <type name="Agent"/> </relation>
+</edge>
+
+<edge style="inherit" label="">
+   <relation name="agent_signals"> <type name="Agent"/> <type name="Signal_type"/> </relation>
+</edge>
+
+<edge visible="no" attribute="yes">
+   <relation name="content"> <type name="Fifo/Node"/> <type name="Message_type"/> </relation>
+   <relation name="IM"> <type name="dev"/> <type name="Firmware"/> </relation>
+   <relation name="last_transition"> <type name="Tracker"/> <type name="Transition"/> </relation>
+   <relation name="SM"> <type name="dev"/> <type name="Firmware"/> </relation>
+</edge>
+
+</view>
+
+</alloy>
